@@ -56,3 +56,12 @@ Code is written asynchronously
 2. Create your Smart Contract and deploy file
 3. `$ truffle development` to run Truffle in development mode, on a development server. It creates 10 test keys (private/public)
 4. `$ migrate`: deploy the contract to the test Blockchain server
+
+
+## Notes on Solidity
+
+`msg` is a globaly avaible variable
+`payable` function type
+
+`function (<parameter types>) {internal|external} [pure|view|payable] [returns (<return types>)]`
+In contrast to the parameter types, the return types cannot be empty - if the function type should not return anything, the whole returns (<return types>) part has to be omitted.

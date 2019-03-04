@@ -1,0 +1,18 @@
+migrate
+const deployer = '0x716a6e289fc59c0954d9d03cf718df7acabe2ec7';
+const client = '0x85440fceb8a7181d8aa6a19aa85f258e14b4b0ed';
+const tasker = '0x0ed2af7c1abb02f7d509c10c195ac41f053bfaa1';
+const instance = await PayStudent.deployed()
+await instance.sendTransaction({ from: client, value: web3.utils.toWei('2', 'ether')})
+
+// Get the balance in Wei
+web3.eth.getBalance(client)
+// Convert in ETH
+web3.utils.fromWei("85998638080000000000")
+
+await instance.sendPayAmountToTasker({from: deployer})
+
+// utils
+const fetchBalanceByAddress = async address => { return new Promise(resolve => { web3.eth.getBalance(address, (_, balance) => { resolve(web3.utils.fromWei(balance, 'ether').toString()) }) }) }
+
+const printBalancesToConsole = async () => { const deployerBalance = await fetchBalanceByAddress(deployer); const clientBalance = await fetchBalanceByAddress(client); const taskerBalance = await fetchBalanceByAddress(tasker); console.log(`Deployer: ${deployerBalance}; Client: ${clientBalance}; Tasker: ${taskerBalance}`)}
