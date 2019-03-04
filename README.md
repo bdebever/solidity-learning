@@ -4,6 +4,7 @@
 - Gaining attention from other Blockchain as well
 - Object Oriented Language: supporting inheritance
 
+This repository contains some of my notes and projects where I'm mocking around with Solidity
 
 ## Data Types
 - Boolean: bool
